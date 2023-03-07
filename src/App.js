@@ -5,8 +5,8 @@ import FormCoponents from "./components/form/FormCoponents";
 function App() {
   return (
     <div className="App">
-      <Contact />
       <FormCoponents />
+      <Contact />
     </div>
   );
 }
