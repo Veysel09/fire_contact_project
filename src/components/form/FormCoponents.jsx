@@ -14,15 +14,15 @@ import {
 import { AccountCircle } from "@mui/icons-material";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 
-const FormComponent = ({ info, setInfo, handleSubmit }) => {
+const FormComponent = ({ info, setInfo, handleSubmit, isAdd }) => {
   const handleChange = (e) => {
-    // const name = e.target.name;
-    // const value = e.target.value;
+    e.preventDefault();
+    // const name=e.target.name;
+    // const value=e.target.value;
     const { name, value } = e.target;
-  setInfo({...info,[name]:value})
-
+    setInfo({ ...info, [name]: value });
+    console.log(info);
   };
-
   return (
     <Grid
       textAlign="center"
@@ -31,19 +31,18 @@ const FormComponent = ({ info, setInfo, handleSubmit }) => {
       style={{ width: "300" }}
     >
       <p className="contact-header">
-        <span className="design header">Weycell</span>
-        <br />
+        <span className="design header">Weycell</span> <br />
         <span className="design header">design</span>
       </p>
       <h2 className="contact-header">Add Contact</h2>
 
       <Box style={{ backgroundColor: "white", padding: "20px" }}>
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
           <Stack spacing={3} direction="column">
             <TextField
               variant="outlined"
               name="username"
-              value={info.userName}
+              value={info.username}
               onChange={handleChange}
               placeholder="Name"
               InputProps={{
@@ -83,7 +82,7 @@ const FormComponent = ({ info, setInfo, handleSubmit }) => {
               </Select>
             </FormControl>
             <Button variant="contained" type="submit" value="Submit">
-              ADD
+              {isAdd}
             </Button>
           </Stack>
         </form>
