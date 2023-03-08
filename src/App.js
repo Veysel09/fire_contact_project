@@ -12,9 +12,13 @@ const initialValues = {
 function App() {
   const [info, setInfo] = useState(initialValues);
 
+  const handleSubmit = (e)=>{
+
+  }
+
   return (
     <div className="App">
-      <FormCoponents info ={info} setInfo={setInfo} />
+      <FormCoponents info ={info} setInfo={setInfo} handleSubmit={handleSubmit} />
       <Contact />
     </div>
   );
