@@ -2,23 +2,29 @@ import { useState } from "react";
 import "./App.css";
 import Contact from "./components/contacts/Contacts";
 import FormCoponents from "./components/form/FormCoponents";
+import { AddUser } from "./utils/functions";
 
 const initialValues = {
   username: "",
   phoneNumber: "",
-  gender: "", 
+  gender: "",
 };
 
 function App() {
   const [info, setInfo] = useState(initialValues);
 
-  const handleSubmit = (e)=>{
-
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    AddUser(info)
+  };
 
   return (
     <div className="App">
-      <FormCoponents info ={info} setInfo={setInfo} handleSubmit={handleSubmit} />
+      <FormCoponents
+        info={info}
+        setInfo={setInfo}
+        handleSubmit={handleSubmit}
+      />
       <Contact />
     </div>
   );
